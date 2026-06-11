@@ -10,6 +10,12 @@ void main() {
           centerTitle: true,
         ),
         body: Center(child: Text("Hello Body")),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            print("Button Clicked");
+          },
+          child: Text("+"),
+        ),
       ),
     ),
   );
