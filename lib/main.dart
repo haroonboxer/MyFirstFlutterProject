@@ -1,22 +1,36 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First App Bar '),
-          backgroundColor: Colors.blue,
-          centerTitle: true,
-        ),
-        body: Center(child: Text("Hello Body")),
-        floatingActionButton: FloatingActionButton(
+  runApp(MaterialApp(home: Home()));
+}
+
+class Home extends StatelessWidget {
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('My flutter App Bar '),
+        backgroundColor: Colors.green,
+        centerTitle: true,
+      ),
+      body: Center(
+        child: ElevatedButton(
           onPressed: () {
-            print("Button Clicked");
+            print("Button is clicked");
           },
-          child: Text("+"),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.white,
+          ),
+          child: Text("Click Me"),
         ),
       ),
-    ),
-  );
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print("Button Clicked");
+        },
+        child: Text("+"),
+        backgroundColor: Colors.red,
+      ),
+    );
+  }
 }
