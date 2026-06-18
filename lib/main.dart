@@ -1,31 +1,34 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(home: Home()));
+  runApp(MaterialApp(home: Test()));
 }
 
-class Home extends StatelessWidget {
+class Test extends StatefulWidget {
+  @override
+  teststate createState() => teststate();
+}
+
+class teststate extends State<Test> {
+  @override
+  int counter = 0;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My flutter App Bar '),
+        title: Text('$counter'),
         backgroundColor: Colors.green,
         centerTitle: true,
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.end,
         children: <Widget>[
-          Expanded(
-            flex:2,
-            child: 
-          Image.asset('assets/Spaceimage.png'),
-          ),
+          Expanded(flex: 2, child: Image.asset('assets/Spaceimage.png')),
           Expanded(
             flex: 1,
             child: Container(
               padding: EdgeInsets.all(30),
               color: Colors.cyan,
-              child: Text("One"),
+              child: Text("$counter"),
             ),
           ),
           Expanded(
@@ -33,7 +36,7 @@ class Home extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.all(30),
               color: Colors.pinkAccent,
-              child: Text("Tow"),
+              child: Text('$counter'),
             ),
           ),
           Expanded(
@@ -48,7 +51,9 @@ class Home extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          print("Button Clicked");
+          setState(() {
+            counter += 1;
+          });
         },
         child: Text("+"),
         backgroundColor: Colors.red,
